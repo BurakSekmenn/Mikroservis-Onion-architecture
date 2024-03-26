@@ -14,7 +14,7 @@ namespace MultiShop.Catalog.Entities
         public string ProductDescription { get; set; }
         public string CategoryId { get; set; }
 
-        [BsonIgnore]
+        [BsonIgnore]//MongoDb'ye kaydetme demek
         public Category Category { get; set; }
     }
 }
