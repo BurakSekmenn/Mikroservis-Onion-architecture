@@ -10,11 +10,11 @@ using Multishop.Order.Domain.Entities;
 
 namespace Multishop.Order.Application.Features.CQRS.Handlers.AddresHandlers
 {
-    public class GetAddressByQueryHandler
+    public class GetAddressByIdQueryHandler
     {
         private readonly IRepository<Address> _repository;
 
-        public GetAddressByQueryHandler(IRepository<Address> repository)
+        public GetAddressByIdQueryHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
