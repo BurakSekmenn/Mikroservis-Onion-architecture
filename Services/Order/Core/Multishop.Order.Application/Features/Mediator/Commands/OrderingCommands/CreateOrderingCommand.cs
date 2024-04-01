@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Multishop.Order.Application.Features.Mediator.Commands.OrderingCommands
 {
-    public class CreateOrderingCommand:IRequest
+    public class CreateOrderingCommand:IRequest // miras ırequestten aldı
     {
        
 
