@@ -13,9 +13,9 @@ namespace Multishop.Order.Presentation.Controllers
         private readonly GetAddressQueryHandler _addressQueryHandler;
         private readonly GetAddressByIdQueryHandler _addressByIdQueryHandler;
         private readonly CreateAddressCommandHandler _createAddressCommandHandler;
-        private readonly RemoveAddressComandHandler _removeAddressCommandHandler;
-        private readonly UpdateAddressComandHandler _updateAddressCommandHandler;
-        public AddressesController(GetAddressQueryHandler addressQueryHandler, GetAddressByIdQueryHandler addressByIdQueryHandler, CreateAddressCommandHandler createAddressCommandHandler, RemoveAddressCommand removeAddressCommand, UpdateAddressComandHandler updateAddressCommandHandler, RemoveAddressComandHandler removeAddressCommand1)
+        private readonly RemoveAddressCommandHandler _removeAddressCommandHandler;
+        private readonly UpdateAddressCommandHandler _updateAddressCommandHandler;
+        public AddressesController(GetAddressQueryHandler addressQueryHandler, GetAddressByIdQueryHandler addressByIdQueryHandler, CreateAddressCommandHandler createAddressCommandHandler, RemoveAddressCommand removeAddressCommand, UpdateAddressCommandHandler updateAddressCommandHandler, RemoveAddressCommandHandler removeAddressCommand1)
         {
             _addressQueryHandler = addressQueryHandler;
             _addressByIdQueryHandler = addressByIdQueryHandler;
@@ -26,7 +26,7 @@ namespace Multishop.Order.Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAddressById()
+        public async Task<IActionResult> AddressList()
         {
             var values = await _addressQueryHandler.Handle();
             return Ok(values);
@@ -36,6 +36,7 @@ namespace Multishop.Order.Presentation.Controllers
         public async Task<IActionResult> GetAddressById(int id)
         {
             var values = await _addressByIdQueryHandler.Handle(new GetAddressByIdQuery(id));
+           
             return Ok(values);
         }
 

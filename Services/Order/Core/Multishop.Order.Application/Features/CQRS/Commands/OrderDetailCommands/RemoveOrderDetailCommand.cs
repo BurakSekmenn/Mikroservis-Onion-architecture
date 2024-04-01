@@ -8,7 +8,12 @@ namespace Multishop.Order.Application.Features.CQRS.Commands.OrderDetailCommands
 {
     public class RemoveOrderDetailCommand
     {
+        public RemoveOrderDetailCommand(int orderDetailId)
+        {
+            OrderDetailId = orderDetailId;
+        }
         public int OrderDetailId { get; set; }
+
         public string ProductId { get; set; } // Monga Db tutuyoruz burada string olarak tutuyoruz guid olarak tutukuyoruz
 
         public string ProductName { get; set; }

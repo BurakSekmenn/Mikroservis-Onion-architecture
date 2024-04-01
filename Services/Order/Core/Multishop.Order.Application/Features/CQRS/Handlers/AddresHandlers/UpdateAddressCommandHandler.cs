@@ -9,19 +9,23 @@ using Multishop.Order.Domain.Entities;
 
 namespace Multishop.Order.Application.Features.CQRS.Handlers.AddresHandlers
 {
-    public class RemoveAddressComandHandler
+    public class UpdateAddressCommandHandler
     {
         private readonly IRepository<Address> _repository;
 
-        public RemoveAddressComandHandler(IRepository<Address> repository)
+        public UpdateAddressCommandHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(RemoveAddressCommand command)
+        public async Task Handle(UpdateAddressCommand request)
         {
-            var values = await _repository.GetByIdAsync(command.Id);
-            await _repository.DeleteAsync(values);
+            var values = await _repository.GetByIdAsync(request.AddresId);
+            values.Detail = request.Detail;
+            values.City = request.City;
+            values.District = request.District;
+            values.UserId = request.UserId;
+            await _repository.UpdateAsync(values);
         }
     }
 }
