@@ -15,14 +15,13 @@ namespace Multishop.Order.Presentation.Controllers
         private readonly CreateAddressCommandHandler _createAddressCommandHandler;
         private readonly RemoveAddressCommandHandler _removeAddressCommandHandler;
         private readonly UpdateAddressCommandHandler _updateAddressCommandHandler;
-        public AddressesController(GetAddressQueryHandler addressQueryHandler, GetAddressByIdQueryHandler addressByIdQueryHandler, CreateAddressCommandHandler createAddressCommandHandler, RemoveAddressCommand removeAddressCommand, UpdateAddressCommandHandler updateAddressCommandHandler, RemoveAddressCommandHandler removeAddressCommand1)
+        public AddressesController(GetAddressQueryHandler addressQueryHandler, GetAddressByIdQueryHandler addressByIdQueryHandler, CreateAddressCommandHandler createAddressCommandHandler, RemoveAddressCommandHandler removeAddressCommandHandler, UpdateAddressCommandHandler updateAddressCommandHandler)
         {
             _addressQueryHandler = addressQueryHandler;
             _addressByIdQueryHandler = addressByIdQueryHandler;
             _createAddressCommandHandler = createAddressCommandHandler;
-        
+            _removeAddressCommandHandler = removeAddressCommandHandler;
             _updateAddressCommandHandler = updateAddressCommandHandler;
-            _removeAddressCommandHandler = removeAddressCommand1;
         }
 
         [HttpGet]
